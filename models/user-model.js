@@ -11,23 +11,39 @@ const userSchema = new mongoose.Schema({
   passwordHash: {
     type: String,
     required: true,
-    set: function(newValue) {
-      return Hash.isHashed(newValue) ? newValue : Hash.generate(newValue);
-    }
   },
 });
 
-UserSchema.statics.authenticate = function(username, password, callback) {
-	this.findOne({ username: username }, function(error, user) {
-		if (user && Hash.verify(password, user.password)) {
-			callback(null, user);
-		} else if (user || !error) {
-			// Email or password was invalid (no MongoDB error)
-			error = new Error("Your email address or password is invalid. Please try again.");
-			callback(error, null);
-		} else {
-			// Something bad happened with MongoDB. You shouldn't run into this often.
-			callback(error, null);
-		}
-	});
+
+
+userSchema.virtual('password')
+  .get(function () { return null })
+  .set(function (value) {
+    const hash = bcrypt.hashSync(value, 8);
+    this.passwordHash = hash;
+  })
+
+userSchema.methods.authenticate = function (password) {
+  return bcrypt.compareSync(password, this.passwordHash);
+}
+
+userSchema.statics.authenticate = function(username, password, done) {
+  console.log(username);
+    this.findOne({
+        username: username
+    }, function(err, user) {
+        if (err) {
+            done(err, false)
+        } else if (user && user.authenticate(password)) {
+            done(null, user)
+        } else {
+            done(null, false)
+        }
+    })
+};
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = {
+  User: User
 };

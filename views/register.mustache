@@ -5,13 +5,9 @@
 </head>
 
 <body>
-  <h1>Welcome to the best code snippet saver!</h1>
-  <h2>Please login to continue</h2>
-  {{#messages.error}}
-          <div class="alert alert-danger" role="alert">
-            {{.}}
-          </div>
-      {{/messages.error}}
+  <h1>Welcome!</h1>
+  <h2>Please create a userid and password</h2>
+  
   <form action="." method="POST">
     <p>
       <label for="username">UserId:</label>
@@ -22,14 +18,8 @@
       <input type="password" id="password" name="password" required />
     </p>
     <p>
-      <button type="submit">Login</button>
+      <button type="submit">Create Login</button>
     </p>
   </form>
-    <p>
-      Don't have a Userid?
-      <a href="/register/" class="button">Click here to register</a>
-    </p>
-
-<!-- add a logout button -->
 
 </body>
