@@ -31,7 +31,8 @@ app.use(express.static('./public'));
 
 const models = require("./models/user-model")
 const User = models.User;
-const Snippet = require("./models/snippet-model");
+const modelsSnip = require("./models/snippet-model");
+const snippet = modelsSnip.snippet;
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -70,8 +71,11 @@ app.use(passport.session());
 app.use(flash());
 
 app.get('/user/', function(req, res) {
-  console.log("in app.get /user/");
-  res.render('user');
+  // console.log("in app.get /user/");
+  console.log(req.user.username);
+  snippet.find({username: req.user.username}).then(function (snippet) {
+  res.render('user', {snippet: snippet});
+})
 });
 
 app.get('/add/', function(req, res) {
@@ -115,7 +119,7 @@ app.get('/', function(req, res) {
 
 app.post('/', passport.authenticate('local', {
 	successRedirect: '/user/',
-	failureRedirect: '/register/',
+	failureRedirect: '/',
    failureFlash: true
 }));
 

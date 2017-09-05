@@ -25,3 +25,9 @@ const snippetSchema = new mongoose.Schema({
     type: Array
   }
 });
+
+const snippet = mongoose.model('snippet', snippetSchema);
+
+module.exports = {
+  snippet: snippet
+};

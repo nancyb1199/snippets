@@ -5,8 +5,9 @@
 </head>
 
 <body>
+
   {{#snippet}}
-    <h1>Welcome {{username}}</h1>
+    <h1>Welcome {{thisUser}}</h1>
     <h2>Here are Your Code Snippets</h2>
     <table>
       <tr>
@@ -29,9 +30,12 @@
     </table>
   {{/snippet}}
 
-  <form action="/add/" method="POST">
+  {{^snippet}}
+    <h1>You don't have any saved code snippets yet!</h1>
+{{/snippet}}
+
     <p>
-      <button type="submit">Add a new code snippet</button>
+      <a href="/add/" class=button>Add a new code snippet</a>
     </p>
   </form>
 
