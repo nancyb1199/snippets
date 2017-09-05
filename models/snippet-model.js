@@ -10,17 +10,17 @@ const snippetSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
-  }
-  body: {
+  },
+  codeBody: {
     type: String,
     required: true
-  }
+  },
   notes: {
     type: String
-  }
+  },
   lang: {
     type: String
-  }
+  },
   tags: {
     type: Array
   }

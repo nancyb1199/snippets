@@ -5,7 +5,37 @@
 </head>
 
 <body>
+  {{#snippet}}
+    <h1>Welcome {{username}}</h1>
+    <h2>Here are Your Code Snippets</h2>
+    <table>
+      <tr>
+        <th>
+          Snippet Title:
+        </th>
+        <th>
+          Language
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href="/{{_id}}">
+            {{title}}</a>
+        </td>
+        <td>
+          {{lang}}
+        </td>
+      </tr>
+    </table>
+  {{/snippet}}
 
-  <h1>Welcome {{username}}</h1>
+  <form action="/add/" method="POST">
+    <p>
+      <button type="submit">Add a new code snippet</button>
+    </p>
+  </form>
+
+<!-- need to add a logout button and think about
+adding search for other users code snippets -->
 
 </body>

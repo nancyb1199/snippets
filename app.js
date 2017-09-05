@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const mustacheExpress = require('mustache-express');
 const Mustache = require('mustache');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
+const hash = bcrypt.hashSync(password, 8);
 
 const mongoURL = 'mongodb://localhost:27017/cookbooks';
 const mongoose = require('mongoose');
@@ -25,12 +27,28 @@ app.use(express.static('./public'));
 const user = require("./models/user-model");
 const snippet = require("./models/snippet-model");
 
+app.get('/user/', function(req, res) {
+  res.render('user');
+});
+
+app.get('/add/', function(req, res) {
+  res.render('newsnip');
+});
+
+app.post('/add/', function(req, res) {
+  // save new snippet to the db & send back to /user/
+});
+
+app.get('/:id/', function(req, res) {
+  res.render('snip');
+});
+
 app.get('/', function(req, res) {
-  if (!figure out if user is logged in) {
-    res.render('index');
-  } else {
+  // if (!user is logged in) {
+    // res.render('index');
+  // } else {
     res.redirect('/user/');
-  }
+  // }
 });
 
 app.listen(3000, function() {
