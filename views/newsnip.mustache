@@ -1,7 +1,7 @@
 <head>
   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  <title>Your Code Snippets</title>
+  <title>Add a new code snippet</title>
 </head>
 
 <body>
@@ -13,7 +13,23 @@
     </p>
     <p>
       <label for="codeBody">Enter the snippet you'd like to save:</label>
-      <textarea name="codeBody" rows="20" cols="50"></textarea>
+      <textarea name="codeBody" rows="20" cols="40"></textarea>
+    </p>
+    <p>
+      <label for="notes">Enter any optional notes about this snippet:</label>
+      <textarea name="notes" rows="10" cols="40"></textarea>
+    </p>
+    <select name="lang">
+      <option value="js">Javascript</option>
+      <option value="react">React</option>
+      <option value="ruby">Ruby</option>
+      <option value="nodejs">Nodejs</option>
+      <option value="java">Java</option>
+      <option value="other">Other</option>
+    </select>
+    <p>
+      <label for="tags">Enter any tags for this code:</label>
+      <input type="text" id="tags" name="tags" />
     </p>
 
   </form>

@@ -36,7 +36,8 @@ app.get('/add/', function(req, res) {
 });
 
 app.post('/add/', function(req, res) {
-  // save new snippet to the db & send back to /user/
+  // save new snippet to the db & send back to /user/?
+  // or maybe leave here with option to add another?
 });
 
 app.get('/:id/', function(req, res) {
