@@ -113,8 +113,13 @@ app.post('/register', function(req, res) {
 });
 
 app.get('/:id/', function(req, res) {
-  // res.render('snip');
+  console.log(req.params.id);
+  snippet.findOne({_id: req.params.id}).then(function (snippet) {
+  res.render('snip', {snippet: snippet});
+  });
 });
+
+
 
 app.get('/', function(req, res) {
   // if (!user is logged in) {
