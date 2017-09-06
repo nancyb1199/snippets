@@ -1,25 +1,27 @@
 <head>
   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  <title>Add a new code snippet</title>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <title>New code snippet</title>
 </head>
 
 <body>
-
+  <h1>Add your new code snippet below:</h1>
   <form action="." method="POST">
-    <p>
-      <label for="title">Code snippet title:</label>
-      <input type="text" id="title" name="title" unique='true' required />
-    </p>
-    <p>
-      <label for="codeBody">Enter the snippet you'd like to save:</label>
-      <textarea name="codeBody" rows="10" cols="20"></textarea>
-    </p>
-    <p>
-      <label for="notes">Enter any optional notes about this snippet:</label>
-      <textarea name="notes" rows="10" cols="20"></textarea>
-    </p>
-    <select name="lang">
+    <fieldset>
+      <legend>New Snippet</legend>
+      <p>
+        <label for="title">Code snippet title:</label>
+        <input type="text" id="title" name="title" unique='true' required />
+      </p>
+      <p>
+        <label for="codeBody">Enter the snippet you'd like to save:</label>
+        <textarea name="codeBody" rows="10" cols="20"></textarea>
+      </p>
+      <p>
+        <label for="notes">Enter any optional notes about this snippet:</label>
+        <textarea name="notes" rows="10" cols="20"></textarea>
+      </p>
+      <select name="lang">
       <option value="js">Javascript</option>
       <option value="react">React</option>
       <option value="ruby">Ruby</option>
@@ -27,13 +29,14 @@
       <option value="java">Java</option>
       <option value="other">Other</option>
     </select>
-    <p>
-      <label for="tags">Enter any tags for this code:</label>
-      <input type="text" id="tags" name="tags" />
-    </p>
-    <p>
-      <button type="submit">Add this snippet</button>
-    </p>
+      <p>
+        <label for="tags">Enter any tags for this code:</label>
+        <input type="text" id="tags" name="tags" />
+      </p>
+      <p>
+        <button type="submit">Add this snippet</button>
+      </p>
+    </fieldset>
   </form>
 
 </body>

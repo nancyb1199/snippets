@@ -1,12 +1,15 @@
 <head>
   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
   <title>Your Code Snippets</title>
 </head>
 
 <body>
   <h1>Welcome!</h1>
-  <h2>Here are Your Code Snippets</h2>
+  <p>
+      <h2>Here are Your Code Snippets</h2>
+  </p>
+
   {{#snippet}}
 
     <table>
@@ -31,15 +34,15 @@
   {{/snippet}}
 
   {{^snippet}}
-    <h1>You don't have any saved code snippets yet!</h1>
-{{/snippet}}
+  <h1>You don't have any saved code snippets yet!</h1>
+  {{/snippet}}
 
-    <p>
-      <a href="/add/" class=button>Add a new code snippet</a>
-    </p>
+  <p>
+    <a href="/add/" class=button>Add a new code snippet</a>
+  </p>
   </form>
 
-<!-- need to add a logout button and think about
+  <!-- need to add a logout button and think about
 adding search for other users code snippets -->
 
 </body>
