@@ -83,8 +83,17 @@ app.get('/add/', function(req, res) {
 });
 
 app.post('/add/', function(req, res) {
-  // save new snippet to the db & send back to /user/?
-  // or maybe leave here with option to add another?
+  console.log(req.body);
+  console.log(req.user);
+  snippet.create({
+    username: req.user.username,
+    title: req.body.title,
+    codeBody: req.body.codeBody,
+    notes: req.body.notes,
+    lang: req.body.lang,
+    tags: req.body.tags
+  });
+  res.redirect('/user/');
 });
 
 

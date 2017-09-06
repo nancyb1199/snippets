@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const snippetSchema = new mongoose.Schema({
   username: {
     type: String,
-    unique: true,
     lowercase: true,
     required: true
   },
