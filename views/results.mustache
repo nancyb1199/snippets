@@ -1,0 +1,43 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <title>Search Results</title>
+</head>
+
+<body>
+  <h1>Search results:</h1>
+
+  {{#snippet}}
+
+    <table>
+      <tr>
+        <th>
+          Snippet Title:
+        </th>
+        <th>
+          Language
+        </th>
+      </tr>
+      <tr>
+        <td width="70%">
+          <a href="/{{_id}}">
+            {{title}}</a>
+        </td>
+        <td width="30%">
+          {{lang}}
+        </td>
+      </tr>
+    </table>
+  {{/snippet}}
+
+  {{^snippet}}
+  <p>
+    <h2>Sorry, no snippets matched your search</h2>
+  </p>
+  {{/snippet}}
+
+  <p>
+    <a href="/user/" class="button">Return to your user page</a>
+  </p>
+
+</body>

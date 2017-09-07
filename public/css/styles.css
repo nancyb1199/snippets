@@ -3,8 +3,12 @@ body {
   padding: 20px;
 }
 
-input {
-  width: 50vw;
+.inputBox {
+  width: 40vw;
+}
+
+.snipBox {
+  width: 70vw;
 }
 
 hr {

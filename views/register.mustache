@@ -1,14 +1,17 @@
 <head>
   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
   <title>Code Snippet Saver</title>
 </head>
 
 <body>
   <h1>Welcome!</h1>
   <h2>Please create a userid and password</h2>
-  
+
+  <div class="inputBox">
   <form action="." method="POST">
+    <fieldset>
+      <legend>Create Login</legend>
     <p>
       <label for="username">UserId:</label>
       <input type="text" id="username" name="username" required />
@@ -20,6 +23,7 @@
     <p>
       <button type="submit">Create Login</button>
     </p>
+  </fieldset>
   </form>
-
+  </div>
 </body>

@@ -22,11 +22,11 @@
         </th>
       </tr>
       <tr>
-        <td>
+        <td width="70%">
           <a href="/{{_id}}">
             {{title}}</a>
         </td>
-        <td>
+        <td width="30%">
           {{lang}}
         </td>
       </tr>
@@ -42,18 +42,18 @@
     <a href="/add/" class=button>Add a new code snippet</a>
   </p>
   <hr>
-  
+  <div class = "inputBox">
   <form action='/search/' method=POST>
     <p>
       <label for="srchlang">Search my snippets for a language:</label>
       <select name="srchlang">
-  <option value="js">Javascript</option>
-  <option value="react">React</option>
-  <option value="ruby">Ruby</option>
-  <option value="nodejs">Nodejs</option>
-  <option value="java">Java</option>
-  <option value="other">Other</option>
-  </select>
+        <option value="js">Javascript</option>
+        <option value="react">React</option>
+        <option value="ruby">Ruby</option>
+        <option value="nodejs">Nodejs</option>
+        <option value="java">Java</option>
+        <option value="other">Other</option>
+      </select>
     </p>
 
     <p>
@@ -71,7 +71,7 @@
       <button type="submit">Submit tag Search</button>
     </p>
   </form>
-
+  </div>
   <!-- need to add a logout button and think about
 adding search for other users code snippets -->
 

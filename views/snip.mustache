@@ -1,27 +1,27 @@
 <head>
   <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
   <title>Code Snippet</title>
 </head>
 
 <body>
   {{#snippet}}
 
-    <h2><font color=blue><u>Snippet Title:</u> {{title}}</font></h2>
+    <h2><font color=blue>Snippet Title: </font><i>{{title}}</i></h2>
     <p>
-      <h4><u>Programming Language: </u>{{lang}}</h4>
+      <h4>Programming Language: <i>{{lang}}</i></h4>
     </p>
 
     <h4>Code Body:</h4>
-    <p>
+    <blockquote>
       {{codeBody}}
-    </p>
+    </blockquote>
     <h4>Notes:</h4>
     <p>
       {{notes}}
     </p>
     <p>
-      <h4>Tags:</h4> {{tags}}
+      <h4>Tags:</h4> <i>{{tags}}</i>
     </p>
   {{/snippet}}
   <p>

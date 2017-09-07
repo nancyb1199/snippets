@@ -59,7 +59,7 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-
+// yorkie's are the best dogs!
 app.use(session({
   secret: 'yorkie dog',
   resave: false,
@@ -70,6 +70,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// when a user logs in, show all of their existing snippets, if any
 app.get('/user/', function(req, res) {
   // console.log("in app.get /user/");
   console.log(req.user.username);
@@ -85,7 +86,8 @@ app.get('/user/', function(req, res) {
 app.get('/add/', function(req, res) {
   res.render('newsnip');
 });
-
+// make sure to save the currently logged in user with each snippet they
+// create so we can use that later to search for various snippets I own
 app.post('/add/', function(req, res) {
   console.log(req.body);
   console.log(req.user);
@@ -115,6 +117,7 @@ app.post('/register', function(req, res) {
     })
 });
 
+// render an individual snippet selected from the user page
 app.get('/:id/', function(req, res) {
   console.log(req.params.id);
   snippet.findOne({
@@ -126,26 +129,29 @@ app.get('/:id/', function(req, res) {
   });
 });
 
+// search for snippets by language or tag
 app.post('/search/', function(req, res) {
-  // Hope to find time to create a search.mustache and render that on
-  // search instead of my typical user file
+  // if the language search was used:
   if (req.body.srchlang) {
     snippet.find({
         username: req.user.username,
         lang: req.body.srchlang
       })
       .then(function(snippet) {
-          res.render('user', {
+          res.render('results', {
             snippet: snippet
           });
         })
   } else {
+    // if the tag search was used:
+    // thanks to this StackOverflow for showing me the regex that made this work!
+    // https://stackoverflow.com/questions/26814456/how-to-get-all-the-values-that-contains-part-of-a-string-using-mongoose-find
     snippet.find({
         username: req.user.username,
         tags: { "$regex": req.body.srchtag, "$options": "i" }
       })
       .then(function(snippet) {
-        res.render('user', {
+        res.render('results', {
           snippet: snippet
         });
       })
@@ -154,13 +160,13 @@ app.post('/search/', function(req, res) {
 
 
 app.get('/', function(req, res) {
-  // if (!user is logged in) {
+  if (!req.user) {
   res.render('index', {
     messages: res.locals.getMessages()
   });
-  // } else {
-  // res.redirect('/user/');
-  // }
+   } else {
+  res.redirect('/user/');
+  }
 });
 
 app.post('/', passport.authenticate('local', {
