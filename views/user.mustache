@@ -7,7 +7,7 @@
 <body>
   <h1>Welcome!</h1>
   <p>
-      <h2>Here are Your Code Snippets</h2>
+    <h2>Here are Your Code Snippets</h2>
   </p>
 
   {{#snippet}}
@@ -35,11 +35,41 @@
 
   {{^snippet}}
   <h1>You don't have any saved code snippets yet!</h1>
+  <h2>Add one now to get started!</h2>
   {{/snippet}}
 
   <p>
     <a href="/add/" class=button>Add a new code snippet</a>
   </p>
+  <hr>
+  
+  <form action='/search/' method=POST>
+    <p>
+      <label for="srchlang">Search my snippets for a language:</label>
+      <select name="srchlang">
+  <option value="js">Javascript</option>
+  <option value="react">React</option>
+  <option value="ruby">Ruby</option>
+  <option value="nodejs">Nodejs</option>
+  <option value="java">Java</option>
+  <option value="other">Other</option>
+  </select>
+    </p>
+
+    <p>
+      <button type="submit">Submit language Search</button>
+    </p>
+  </form>
+  <hr>
+
+  <form action='/search/' method=POST>
+    <p>
+      <label for="srchtag">Search my snippets for a tag:</label>
+      <input type="text" id="srchtag" name="srchtag" />
+    </p>
+    <p>
+      <button type="submit">Submit tag Search</button>
+    </p>
   </form>
 
   <!-- need to add a logout button and think about
